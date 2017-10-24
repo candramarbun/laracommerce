@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
       <div class="content">
-        <h2> Category </h2>
+        <h2> Ini Category </h2>
       </div>
     </div>
 </div>
