@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\CategoryRole;
 
 class CategoryController extends Controller
 {
@@ -13,8 +14,9 @@ class CategoryController extends Controller
 
     public function manageCategory() {
       $categories = Category::where('parent_id', '=', 0)->get();
-        $allCategories = Category::pluck('title','id')->all();
-        return view('category.manageCategory',compact('categories','allCategories'));
+      $c_role = CategoryRole::pluck('role_name','id')->all();
+      $allCategories = Category::pluck('title','id')->all();
+      return view('category.manageCategory',compact('categories','allCategories','c_role'));
     }
 
     public function addCategory(Request $request) {

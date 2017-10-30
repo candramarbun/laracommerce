@@ -17,9 +17,12 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('product_code');
             $table->string('product_name');
+            $table->string('product_price');
             $table->string('product_qty');
             $table->string('product_desc');
             $table->integer('product_cat')->unsigned();
+            $table->integer('product_sub_cat')->unsigned();
+            $table->integer('product_brand')->unsigned();
             $table->timestamps();
 
             $table->foreign('product_cat')
@@ -27,6 +30,19 @@ class CreateProductsTable extends Migration
               ->on('categories')
               ->onDelete('cascade')
               ->onUpdate('cascade');
+
+            $table->foreign('product_sub_cat')
+              ->references('id')
+              ->on('categories')
+              ->onDelete('cascade')
+              ->onUpdate('cascade');
+
+            $table->foreign('product_brand')
+                ->references('id')
+                ->on('categories')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
         });
     }
 

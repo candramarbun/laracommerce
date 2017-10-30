@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 		<div class="panel panel-primary">
-			<div class="panel-heading">Manage Category TreeView</div>
+			<div class="panel-heading">Manage Category</div>
 	  		<div class="panel-body">
 	  			<div class="row">
 	  				<div class="col-md-6">
@@ -42,6 +42,11 @@
 									{!! Form::select('parent_id',$allCategories, old('parent_id'), ['class'=>'form-control', 'placeholder'=>'Select Category']) !!}
 									<span class="text-danger">{{ $errors->first('parent_id') }}</span>
 								</div>
+								<div class="form-group {{ $errors->has('role_id') ? 'has-error' : '' }}">
+									{!! Form::label('Role:') !!}
+									{!! Form::select('role_id',$c_role, old('role_id'), ['class'=>'form-control', 'placeholder'=>'Select Role']) !!}
+									<span class="text-danger">{{ $errors->first('role_id') }}</span>
+								</div>
 
 								<div class="form-group">
 									<button class="btn btn-success">Add New</button>
@@ -54,5 +59,5 @@
 	  		</div>
         </div>
     </div>
-    
+
 @endsection

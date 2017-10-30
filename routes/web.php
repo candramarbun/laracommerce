@@ -21,3 +21,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/category','CategoryController@index')->name('category_index');
 Route::get('/manage-category',['uses'=>'CategoryController@manageCategory']);
 Route::post('add-category',['as'=>'add.category','uses'=>'CategoryController@addCategory']);
+Route::get('/product/add-product',['as'=>'add.product','uses'=>'ProductController@createProduct']);
+Route::post('/product/dropdown',['as'=>'dropdown.product','uses'=>'ProductController@dropdownCat']);
